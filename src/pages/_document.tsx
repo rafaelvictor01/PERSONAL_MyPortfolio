@@ -4,7 +4,7 @@ import Document, {
   Head,
   Html,
   Main,
-  NextScript,
+  NextScript
 } from 'next/document'
 import React from 'react'
 // eslint-disable-next-line prettier/prettier
@@ -35,8 +35,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -47,7 +46,7 @@ export default class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        ),
+        )
       }
     } finally {
       sheet.seal()
@@ -56,13 +55,10 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang={'pt'}>
+      <Html lang={'pt-BR'}>
         <Head>
           <meta charSet={'utf-8'} />
-          <link
-            href={'https://fonts.googleapis.com/css?family=Roboto:400,500,700'}
-            rel={'stylesheet'}
-          />
+          <meta httpEquiv={'X-UA-Compatible'} content={'IE=edge'} />
           {/* Add o favicon */}
         </Head>
         <body>

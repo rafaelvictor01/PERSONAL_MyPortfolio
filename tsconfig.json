@@ -25,5 +25,8 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "files": [
+    "src/common/styles/themes/globalThemeDarkTypes.d.ts"
+  ],
 }

@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import theme from '../common/styles/globalTheme'
+import globalThemeDark from '../common/styles/themes/dark-theme/globalThemeDark'
+import globalThemeLight from '../common/styles/themes/light-theme/globalThemeLight'
 import GlobalStyle from '../common/styles/globalStyle'
 
 /**
@@ -13,7 +14,7 @@ import GlobalStyle from '../common/styles/globalStyle'
  */
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={globalThemeDark}>
       <GlobalStyle />
       <Component {...pageProps} />
     </ThemeProvider>

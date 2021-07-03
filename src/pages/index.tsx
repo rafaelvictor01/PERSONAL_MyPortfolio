@@ -1,11 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import LandingScreenMainContentCP from '../screens/landing-screen/components/landing-screen-main-content/LandingScreenMainContent'
 
-export default function Home(): JSX.Element {
-  return <Title>My page</Title>
+export default function LandingPageCP(): JSX.Element {
+  return <LandingScreenMainContentCP />
 }
-
-const Title = styled.div`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`

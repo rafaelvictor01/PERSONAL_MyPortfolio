@@ -23,5 +23,8 @@ export default createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
+    font-family: sans-serif;
+    font-size: ${props => props.theme.defaultSize.fontSize};
+    background-color: ${props => props.theme.colors.mainBackground};
   }
 `
