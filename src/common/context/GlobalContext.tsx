@@ -1,12 +1,13 @@
 import React, { createContext } from 'react'
-import { DefaultTheme } from 'styled-components'
 import usePersistedState from '../hooks/persisted-state/usePersistedState'
 import globalThemeDark from '../styles/themes/dark-theme/globalThemeDark'
 import globalThemeLight from '../styles/themes/light-theme/globalThemeLight'
 
+const THEME_COOKIE_ACCESS_KEY = 'globalTheme'
+
 /** Definição do type personalizado do nosso contexto */
 type GlobalContextTP = {
-  globalTheme: DefaultTheme
+  globalThemeTittle: string
   toggleTheme: () => void
 }
 
@@ -22,20 +23,22 @@ export const GlobalContext = createContext<Partial<GlobalContextTP>>({})
  * @author rafaelvictor01
  */
 export const GlobalContextProvider: React.FC = ({ children }) => {
-  const [globalTheme, setGlobalTheme] = usePersistedState<DefaultTheme>(
-    'globalTheme',
-    globalThemeDark
+  const [globalThemeTittle, setGlobalThemeTittle] = usePersistedState(
+    THEME_COOKIE_ACCESS_KEY,
+    globalThemeLight.title
   )
 
   // Responsável por controlar a troca dos temas da aplicação
   function toggleTheme(): void {
-    setGlobalTheme(
-      globalTheme === globalThemeDark ? globalThemeLight : globalThemeDark
+    setGlobalThemeTittle(
+      globalThemeTittle === globalThemeDark.title
+        ? globalThemeLight.title
+        : globalThemeDark.title
     )
   }
 
   return (
-    <GlobalContext.Provider value={{ globalTheme, toggleTheme }}>
+    <GlobalContext.Provider value={{ globalThemeTittle, toggleTheme }}>
       {children}
     </GlobalContext.Provider>
   )

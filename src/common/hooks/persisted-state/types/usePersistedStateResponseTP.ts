@@ -6,4 +6,7 @@ import { Dispatch, SetStateAction } from 'react'
  * - O retorno deste hook personalizado precisa NECESSÁRIAMENTE simular O MESMO
  * retorno de um useState.
  */
-export type usePersistedStateResponseTP<T> = [T, Dispatch<SetStateAction<T>>]
+export type usePersistedStateResponseTP = [
+  string,
+  Dispatch<SetStateAction<string>>
+]

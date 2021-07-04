@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalContext } from '../../../context/GlobalContext'
+import globalThemeLight from '../../themes/light-theme/globalThemeLight'
+import globalThemeDark from '../../themes/dark-theme/globalThemeDark'
 
 interface ThemeProviderCPProps {
   children: JSX.Element
@@ -19,7 +21,13 @@ export default function ThemeProviderCP(
 ): JSX.Element {
   const globalContext = useContext(GlobalContext)
   return (
-    <ThemeProvider theme={globalContext.globalTheme}>
+    <ThemeProvider
+      theme={
+        globalContext.globalThemeTittle === globalThemeLight.title
+          ? globalThemeLight
+          : globalThemeDark
+      }
+    >
       {props.children}
     </ThemeProvider>
   )

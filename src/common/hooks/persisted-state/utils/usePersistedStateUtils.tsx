@@ -1,3 +1,5 @@
+import { parseCookies } from 'nookies'
+
 /**
  * @author rafaelvictor01
  * @returns - métodos auxiliares à criação do hook personalizado usePersistedState
@@ -24,13 +26,22 @@ export const usePersistedStateUtils = {
    * - Nesse caso usamos como inicialState o próprio valor previsto no código como default. Ou seja
    * a prop.value
    */
-  searchCookiesForInitialState<T>(key: string, value: T): T {
-    const storageValue = window.localStorage.getItem(key)
-
-    if (storageValue) {
-      return JSON.parse(storageValue)
+  searchCookiesForInitialState(key: string, value: string): string {
+    const cookies = parseCookies(null)
+    if (cookies[key]) {
+      return cookies[key]
     } else {
       return value
     }
+  },
+
+  // Os cookies da aplicação serão persistidos por 1 dia (86400 segundos)
+  getMaximumAgeForAllApplicationCookies(): number {
+    return 86400
+  },
+
+  // Os cookies estarão disponíveis na aplicação desde a rota /
+  getFirstValidRouteForCookies(): string {
+    return '/'
   }
 }
