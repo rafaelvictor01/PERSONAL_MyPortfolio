@@ -7,7 +7,7 @@
  * @author rafaelvictor01
  */
 const DarkTheme = {
-  title: 'darkTheme',
+  title: 'DarkTheme',
 
   colors: {
     primary: '#4447E2',

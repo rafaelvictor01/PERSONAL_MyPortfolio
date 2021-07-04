@@ -27,6 +27,7 @@
     "node_modules"
   ],
   "files": [
-    "src/common/styles/themes/globalThemeDarkTypes.d.ts"
+    "src/common/styles/themes/dark-theme/globalThemeDarkTypes.d.ts",
+    "src/common/styles/themes/light-theme/globalThemeLightTypes.d.ts",
   ],
 }
