@@ -1,5 +1,6 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext } from 'react'
 import { DefaultTheme } from 'styled-components'
+import usePersistedState from '../hooks/persisted-state/usePersistedState'
 import globalThemeDark from '../styles/themes/dark-theme/globalThemeDark'
 import globalThemeLight from '../styles/themes/light-theme/globalThemeLight'
 
@@ -21,11 +22,14 @@ export const GlobalContext = createContext<Partial<GlobalContextTP>>({})
  * @author rafaelvictor01
  */
 export const GlobalContextProvider: React.FC = ({ children }) => {
-  const [globalTheme, setTheme] = useState(globalThemeDark)
+  const [globalTheme, setGlobalTheme] = usePersistedState<DefaultTheme>(
+    'globalTheme',
+    globalThemeDark
+  )
 
   // Responsável por controlar a troca dos temas da aplicação
   function toggleTheme(): void {
-    setTheme(
+    setGlobalTheme(
       globalTheme === globalThemeDark ? globalThemeLight : globalThemeDark
     )
   }
