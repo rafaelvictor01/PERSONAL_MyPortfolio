@@ -15,6 +15,8 @@ export default function LandingScreenMainContentCP(): JSX.Element {
       <MainNavbarCP>
         <button onClick={globalContext.toggleTheme}>teste</button>
       </MainNavbarCP>
+      <h1>teste h1</h1>
+      <p>teste p</p>
     </LandingScreenMainContentMainWrapperSCP>
   )
 }

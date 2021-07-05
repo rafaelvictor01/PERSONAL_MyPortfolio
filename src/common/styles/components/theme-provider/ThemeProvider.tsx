@@ -23,7 +23,7 @@ export default function ThemeProviderCP(
   return (
     <ThemeProvider
       theme={
-        globalContext.globalThemeTittle === globalThemeLight.title
+        globalContext.globalThemeTitle === globalThemeLight.title
           ? globalThemeLight
           : globalThemeDark
       }

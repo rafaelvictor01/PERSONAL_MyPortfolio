@@ -7,7 +7,7 @@ const THEME_COOKIE_ACCESS_KEY = 'globalTheme'
 
 /** Definição do type personalizado do nosso contexto */
 type GlobalContextTP = {
-  globalThemeTittle: string
+  globalThemeTitle: string
   toggleTheme: () => void
 }
 
@@ -23,22 +23,22 @@ export const GlobalContext = createContext<Partial<GlobalContextTP>>({})
  * @author rafaelvictor01
  */
 export const GlobalContextProvider: React.FC = ({ children }) => {
-  const [globalThemeTittle, setGlobalThemeTittle] = usePersistedState(
+  const [globalThemeTitle, setGlobalThemeTitle] = usePersistedState(
     THEME_COOKIE_ACCESS_KEY,
     globalThemeLight.title
   )
 
   // Responsável por controlar a troca dos temas da aplicação
   function toggleTheme(): void {
-    setGlobalThemeTittle(
-      globalThemeTittle === globalThemeDark.title
+    setGlobalThemeTitle(
+      globalThemeTitle === globalThemeDark.title
         ? globalThemeLight.title
         : globalThemeDark.title
     )
   }
 
   return (
-    <GlobalContext.Provider value={{ globalThemeTittle, toggleTheme }}>
+    <GlobalContext.Provider value={{ globalThemeTitle, toggleTheme }}>
       {children}
     </GlobalContext.Provider>
   )

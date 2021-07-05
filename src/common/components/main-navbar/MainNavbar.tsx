@@ -15,6 +15,6 @@ export default function MainNavbarCP(props: MainNavbarCPProps): JSX.Element {
 }
 
 const MainNavbarMainWrapperSCP = styled.div`
-  height: ${props => props.theme.defaultSize.headerAndFooter};
+  height: 30px;
   background-color: ${props => props.theme.colors.primary};
 `

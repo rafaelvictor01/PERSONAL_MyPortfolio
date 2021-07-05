@@ -15,16 +15,39 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
-    height: 100%;
-    width: 100%;
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    display: flex;
-    flex-direction: column;
-    font-family: sans-serif;
-    font-size: ${props => props.theme.defaultSize.fontSize};
-    background-color: ${props => props.theme.colors.mainBackground};
+    margin: 0 0 ${props => props.theme.defaultHeight.headerHeight} 0;
+    background-color: ${props => props.theme.colors.body};
+    color: ${props => props.theme.colors.text};
+    font-family: ${props => props.theme.font.fontFamily};
+    font-size: ${props => props.theme.fontSizeForSmallDevices.normalFontSize};
+
+    @media screen and (min-width: 960px) {
+      font-size: ${props => props.theme.fontSizeForLargeDevices.normalFontSize};
+    }
+  }
+
+  h1, h2, h3, h4 {
+    color: ${props => props.theme.colors.title};
+    font-weight: ${props => props.theme.font.fontSemiBold};
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 `
+
+// 13:28

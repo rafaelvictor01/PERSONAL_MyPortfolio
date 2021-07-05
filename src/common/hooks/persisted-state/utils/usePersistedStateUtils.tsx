@@ -33,15 +33,5 @@ export const usePersistedStateUtils = {
     } else {
       return value
     }
-  },
-
-  // Os cookies da aplicação serão persistidos por 1 dia (86400 segundos)
-  getMaximumAgeForAllApplicationCookies(): number {
-    return 86400
-  },
-
-  // Os cookies estarão disponíveis na aplicação desde a rota /
-  getFirstValidRouteForCookies(): string {
-    return '/'
   }
 }

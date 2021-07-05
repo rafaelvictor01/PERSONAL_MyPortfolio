@@ -1,5 +1,6 @@
 import { setCookie } from 'nookies'
 import { useEffect, useState } from 'react'
+import { SettingsConstants } from '../../constants/SettingsConstants'
 import { usePersistedStateResponseTP } from './types/usePersistedStateResponseTP'
 import { usePersistedStateUtils } from './utils/usePersistedStateUtils'
 
@@ -29,8 +30,8 @@ export default function usePersistedState(
   // Um cookie será EDITADO quando um genericState de uma key CONHECIDA for alterado.
   useEffect(() => {
     setCookie(null, key, genericState, {
-      path: usePersistedStateUtils.getFirstValidRouteForCookies(),
-      maxAge: usePersistedStateUtils.getMaximumAgeForAllApplicationCookies()
+      path: SettingsConstants.FIRST_VALID_ROUTE_FOR_COOKIES,
+      maxAge: SettingsConstants.MAXIMUM_AGE_FOR_ALL_APPLICATION_COOKIES
     })
   }, [key, genericState])
 
