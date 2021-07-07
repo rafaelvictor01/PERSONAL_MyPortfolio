@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalContext } from '../../../context/GlobalContext'
-import globalThemeLight from '../../themes/light-theme/globalThemeLight'
-import globalThemeDark from '../../themes/dark-theme/globalThemeDark'
+import globalThemeLight from '../../../styles/themes/light-theme/globalThemeLight'
+import globalThemeDark from '../../../styles/themes/dark-theme/globalThemeDark'
 
 interface ThemeProviderCPProps {
   children: JSX.Element

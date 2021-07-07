@@ -10,5 +10,8 @@ export const SettingsConstants = {
   FIRST_VALID_ROUTE_FOR_COOKIES: '/',
 
   // Os cookies da aplicação serão persistidos por 1 dia (86400 segundos)
-  MAXIMUM_AGE_FOR_ALL_APPLICATION_COOKIES: 86400
+  MAXIMUM_AGE_FOR_ALL_APPLICATION_COOKIES: 86400,
+
+  // Chave de acesso para encontrar o registro da preferência de tema do usuário nos cookies do browser
+  THEME_COOKIE_ACCESS_KEY: 'globalTheme'
 }

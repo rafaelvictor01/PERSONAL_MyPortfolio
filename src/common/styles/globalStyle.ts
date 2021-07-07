@@ -36,7 +36,7 @@ export default createGlobalStyle`
     font-weight: ${props => props.theme.font.fontSemiBold};
   }
 
-  ul {
+  ul, li {
     list-style: none;
   }
 
@@ -48,6 +48,17 @@ export default createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
-`
 
-// 13:28
+  /** Classes Recicláveis */
+
+  .container {
+    max-width: 768px;
+    margin-left: ${props => props.theme.marginBottom.mb15};
+    margin-right: ${props => props.theme.marginBottom.mb15};
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+`

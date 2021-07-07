@@ -1,9 +1,8 @@
 import React, { createContext } from 'react'
+import { SettingsConstants } from '../constants/SettingsConstants'
 import usePersistedState from '../hooks/persisted-state/usePersistedState'
 import globalThemeDark from '../styles/themes/dark-theme/globalThemeDark'
 import globalThemeLight from '../styles/themes/light-theme/globalThemeLight'
-
-const THEME_COOKIE_ACCESS_KEY = 'globalTheme'
 
 /** Definição do type personalizado do nosso contexto */
 type GlobalContextTP = {
@@ -24,7 +23,7 @@ export const GlobalContext = createContext<Partial<GlobalContextTP>>({})
  */
 export const GlobalContextProvider: React.FC = ({ children }) => {
   const [globalThemeTitle, setGlobalThemeTitle] = usePersistedState(
-    THEME_COOKIE_ACCESS_KEY,
+    SettingsConstants.THEME_COOKIE_ACCESS_KEY,
     globalThemeLight.title
   )
 
