@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SectionCP from '../../../../common/components/layout/section/Section'
 import MainNavbarCP from '../../../../common/components/main-navbar/MainNavbar'
 import LinkButtonIconCP from '../../../../common/components/link-button-icon/LinkButtonIconCP'
+import ProfilePictureWithBlobCP from '../profile-picture-with-blob/ProfilePictureWithBlob'
 
 /**
  * @author rafaelvictor01
@@ -29,6 +30,7 @@ export default function LandingScreenMainContentCP(): JSX.Element {
               iconName={['fab', 'github']}
             />
           </SocialMediaAreaSCP>
+          <ProfilePictureWithBlobCP />
         </LandingScreenContentSCP>
 
         {/* Esta faltando a imagem */}
@@ -55,13 +57,32 @@ export default function LandingScreenMainContentCP(): JSX.Element {
 }
 
 // home__container
-const LandingScreenWrapperSCP = styled.div``
+const LandingScreenWrapperSCP = styled.div`
+  gap: 1rem;
+`
 
 // home__content
-const LandingScreenContentSCP = styled.div``
+const LandingScreenContentSCP = styled.div`
+  grid-template-columns: 0.5fr 3fr;
+  padding-top: 3.5rem;
+  align-items: center;
+`
 
 // home__social
-const SocialMediaAreaSCP = styled.div``
+const SocialMediaAreaSCP = styled.div`
+  display: grid;
+  grid-template-columns: max-content;
+  row-gap: 1rem;
+
+  .svg-inline--fa {
+    font-size: 1.25rem;
+    color: ${props => props.theme.colors.primary};
+  }
+
+  .svg-inline--fa:hover {
+    color: ${props => props.theme.colors.darkPrimary};
+  }
+`
 
 // home__data
 const DataAreaSCP = styled.div``
