@@ -3,8 +3,9 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalContext } from '../../../context/GlobalContext'
 import globalThemeLight from '../../../styles/themes/light-theme/globalThemeLight'
 import globalThemeDark from '../../../styles/themes/dark-theme/globalThemeDark'
+import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 
-interface ThemeProviderCPProps {
+interface IThemeProviderCPProps extends IStandardInterface {
   children: JSX.Element
 }
 
@@ -17,7 +18,7 @@ interface ThemeProviderCPProps {
  * arquivo _app.tsx ele não seria capaz de fazer uso do react-context global da aplicação.
  */
 export default function ThemeProviderCP(
-  props: ThemeProviderCPProps
+  props: IThemeProviderCPProps
 ): JSX.Element {
   const globalContext = useContext(GlobalContext)
   return (

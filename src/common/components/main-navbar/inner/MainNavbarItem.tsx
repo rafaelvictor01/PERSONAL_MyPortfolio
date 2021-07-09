@@ -1,9 +1,10 @@
 import React from 'react'
+import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 import styled from 'styled-components'
 import { iconNameTP } from '../../../types/iconNameTP'
 import IconsCP from '../../styles/icons/Icons'
 
-interface MainNavbarItemCPProps {
+interface IMainNavbarItemCPProps extends IStandardInterface {
   href: string
   iconName: iconNameTP
   text: string
@@ -15,7 +16,7 @@ interface MainNavbarItemCPProps {
  * @return Abstrai a criação de um item para estar no menu principal da aplicação.
  */
 export default function MainNavbarItemCP(
-  props: MainNavbarItemCPProps
+  props: IMainNavbarItemCPProps
 ): JSX.Element {
   return (
     <MainNavbarItemMainWrapperSCP>

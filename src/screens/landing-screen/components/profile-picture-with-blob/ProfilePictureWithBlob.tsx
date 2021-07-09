@@ -1,7 +1,8 @@
 import React from 'react'
+import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 import styled from 'styled-components'
 
-interface ProfilePictureWithBlobCPProps {
+interface IProfilePictureWithBlobCPProps extends IStandardInterface {
   color?: string
 }
 
@@ -10,7 +11,7 @@ interface ProfilePictureWithBlobCPProps {
  * @return ADD DESCRIPTION
  */
 export default function ProfilePictureWithBlobCP(
-  props: ProfilePictureWithBlobCPProps
+  props: IProfilePictureWithBlobCPProps
 ): JSX.Element {
   return (
     <ProfilePictureWithBlobSCP>

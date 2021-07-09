@@ -2,13 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import IconsCP from '../styles/icons/Icons'
 import { iconNameTP } from '../../types/iconNameTP'
+import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 
-interface LinkButtonIconCPProps {
+interface ILinkButtonWithIconCPProps extends IStandardInterface {
   href: string
   iconName: iconNameTP
   text?: string
-  id?: string
-  className?: string
   target?: string
 }
 
@@ -16,14 +15,14 @@ interface LinkButtonIconCPProps {
  * @author rafaelvictor01
  * @return ADD DESCRIPTION
  */
-export default function LinkButtonIconCP(
-  props: LinkButtonIconCPProps
+export default function LinkButtonWithIconCP(
+  props: ILinkButtonWithIconCPProps
 ): JSX.Element {
   return (
     <LinkButtonIconSCP
       href={props.href}
       className={props.className}
-      id={props.id}
+      id={props.id + ''}
       target={props.target ?? '_blank'}
     >
       {props.text && <TextWrapperSCP>{props.text}</TextWrapperSCP>}

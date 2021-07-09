@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { iconNameTP } from '../../../types/iconNameTP'
+import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 
 library.add(fab, fas)
-interface IconsCPProps {
+interface IIconsCPProps extends IStandardInterface {
   iconName: iconNameTP
-  className?: string
-  id?: string
   onClick?: () => void
 }
 
@@ -19,7 +18,7 @@ interface IconsCPProps {
  * @return - A estrutura necessária para uso de quaisquer ícones na aplicação.
  * - Este componente é ESSENCIAL para evitar o alto acoplamento à biblioteca fortawesome
  */
-export default function IconsCP(props: IconsCPProps): JSX.Element {
+export default function IconsCP(props: IIconsCPProps): JSX.Element {
   return (
     <IconsMainWrapperSCP onClick={props.onClick}>
       <FontAwesomeIcon

@@ -1,17 +1,16 @@
 import React from 'react'
+import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 import styled from 'styled-components'
 
-interface SectionCPProps {
+interface ISectionCPProps extends IStandardInterface {
   children: JSX.Element
-  className?: string
-  id?: string
 }
 
 /**
  * @author rafaelvictor01
  * @return - tag section personalizada para agrupar as screens
  */
-export default function SectionCP(props: SectionCPProps): JSX.Element {
+export default function SectionCP(props: ISectionCPProps): JSX.Element {
   return (
     <SectionMainWrapperSCP className={props.className} id={props.id}>
       {props.children}
