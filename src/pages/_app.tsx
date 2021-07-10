@@ -3,6 +3,7 @@ import React from 'react'
 import GlobalStyle from '../common/styles/globalStyle'
 import { GlobalContextProvider } from '../common/context/GlobalContext'
 import ThemeProviderCP from '../common/components/styles/theme-provider/ThemeProvider'
+import { LayoutCP } from 'src/common/components/layout/Layout'
 
 /**
  * @author rafaelvictor01
@@ -14,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <ThemeProviderCP>
         <>
           <GlobalStyle />
-          <Component {...pageProps} />
+          <LayoutCP content={<Component {...pageProps} />} />
         </>
       </ThemeProviderCP>
     </GlobalContextProvider>

@@ -15,10 +15,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     margin: 0 0 ${props => props.theme.defaultHeight.headerHeight} 0;
     background-color: ${props => props.theme.colors.body};
@@ -42,6 +38,10 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+  }
+
+  button {
+    border: none;
   }
 
   img {

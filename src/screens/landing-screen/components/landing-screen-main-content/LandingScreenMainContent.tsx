@@ -1,45 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
-import SectionCP from '../../../../common/components/section/Section'
-import MainNavbarCP from '../../../../common/components/main-navbar/MainNavbar'
 import ProfilePictureWithBlobCP from '../profile-picture-with-blob/ProfilePictureWithBlob'
 import TextCP from 'src/common/components/text/Text'
 import ButtonIconWithLinkCP from 'src/common/components/button-icon-with-link/ButtonIconWithLink'
+import { UserConstants } from 'src/common/constants/UserConstants'
+import ButtonCP from 'src/common/components/button/Button'
 
 /**
  * @author rafaelvictor01
+ * @todo Componentizar direito as coisas por aqui.
  * @return Add description to LandingScreenMainContentCP
  */
 export default function LandingScreenMainContentCP(): JSX.Element {
   return (
-    <SectionCP>
-      <LandingScreenWrapperSCP className={'container grid'}>
-        <MainNavbarCP />
-
-        <LandingScreenContentSCP className={'grid'}>
-          <SocialMediaAreaSCP>
-            <ButtonIconWithLinkCP
-              href={'www.google.com'}
-              iconName={['fab', 'linkedin']}
-            />
-            <ButtonIconWithLinkCP
-              href={'www.google.com'}
-              iconName={['fab', 'instagram']}
-            />
-            <ButtonIconWithLinkCP
-              href={'www.google.com'}
-              iconName={['fab', 'github']}
-            />
-          </SocialMediaAreaSCP>
-          <ProfilePictureWithBlobCP />
-        </LandingScreenContentSCP>
-
-        <DataAreaSCP>
-          <TextCP content={'Olá, eu sou o Rafael 😀'} title={true} />
-          <TextCP
-            subtitle={true}
-            content={'Dev Fullstack com uma caidinha pelo Frontend 👀'}
+    <LandingScreenWrapperSCP className={'container grid'}>
+      <LandingScreenContentSCP className={'grid'}>
+        <SocialMediaAreaSCP>
+          <ButtonIconWithLinkCP
+            iconName={['fab', 'linkedin']}
+            href={UserConstants.URL_LINKEDIN}
+            externalLink={true}
           />
+          <ButtonIconWithLinkCP
+            iconName={['fab', 'instagram']}
+            href={UserConstants.URL_INSTAGRAM}
+            externalLink={true}
+          />
+          <ButtonIconWithLinkCP
+            iconName={['fab', 'github']}
+            href={UserConstants.URL_GITHUB}
+            externalLink={true}
+          />
+        </SocialMediaAreaSCP>
+        <ProfilePictureWithBlobCP />
+        <DataAreaSCP>
+          <TextCP content={"Hi, I'am Rafael 😀"} title={true} />
+          <TextCP subtitle={true} content={'Dev Fullstack '} />
           <TextCP
             content={
               'Estudante de Sistemas da Informação e, atualmente, desenvolvedor web estou sempre ' +
@@ -47,27 +43,28 @@ export default function LandingScreenMainContentCP(): JSX.Element {
             }
           />
           {/* className: button button--flex */}
-          <ButtonIconWithLinkCP
-            href={'#'}
-            className={'contactMeButton'}
+          <ButtonCP
+            onClick={() => console.log('create this action')}
             iconName={'paper-plane'}
-            text={'Entre em contato'}
-          />
+          >
+            Contact Me
+          </ButtonCP>
         </DataAreaSCP>
+      </LandingScreenContentSCP>
 
-        {/* className={'home__scrool'} */}
-        {/* 31:27 */}
-      </LandingScreenWrapperSCP>
-    </SectionCP>
+      {/* className={'home__scrool'} 31:27 */}
+    </LandingScreenWrapperSCP>
   )
 }
 
-// home__container
+// section -> className={'home section'} id={'home'}
+
+// home__container container grid
 const LandingScreenWrapperSCP = styled.div`
   gap: 1rem;
 `
 
-// home__content
+// home__content grid
 const LandingScreenContentSCP = styled.div`
   grid-template-columns: 0.5fr 3fr;
   padding-top: 3.5rem;
@@ -80,6 +77,7 @@ const SocialMediaAreaSCP = styled.div`
   grid-template-columns: max-content;
   row-gap: 1rem;
 
+  // Para todos os icons
   .svg-inline--fa {
     font-size: 1.25rem;
     color: ${props => props.theme.colors.primary};
@@ -100,14 +98,5 @@ const DataAreaSCP = styled.div`
 
   p {
     margin-bottom: ${props => props.theme.marginBottom.mb2};
-  }
-
-  .contactMeButton {
-    display: inline-block;
-    background-color: ${props => props.theme.colors.primary};
-    color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    font-weight: ${props => props.theme.font.fontMedium};
   }
 `

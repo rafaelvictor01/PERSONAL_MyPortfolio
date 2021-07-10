@@ -8,6 +8,13 @@ const withReactSvg = require('next-react-svg')
 const withPlugins = require('next-compose-plugins')
 const path = require('path')
 
+/**
+ * @author rafaelvictor01
+ * @todo compreender e concertar a linha:
+ * include: path.resolve(__dirname, 'src/common/assets'),
+ *
+ * Essa pasta já nem existe mais...
+ */
 module.exports = withPlugins([
   [withImages, {
     esModule: true,

@@ -7,8 +7,7 @@ import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 interface IButtonIconWithLinkCPProps extends IStandardInterface {
   href: string
   iconName: iconNameTP
-  text?: string
-  target?: string
+  externalLink?: boolean
 }
 
 /**
@@ -19,15 +18,24 @@ export default function ButtonIconWithLinkCP(
   props: IButtonIconWithLinkCPProps
 ): JSX.Element {
   return (
-    <LinkSCP
-      href={props.href}
-      className={props.className}
-      id={props.id}
-      target={props.target ?? '_blank'}
-    >
-      {props.text && <TextWrapperSCP>{props.text}</TextWrapperSCP>}
-      <IconsCP iconName={props.iconName} />
-    </LinkSCP>
+    <>
+      {props.externalLink && (
+        <LinkSCP
+          href={props.href}
+          className={props.className}
+          id={props.id}
+          target={'_blank'}
+          rel={'noopener noreferrer'}
+        >
+          <IconsCP iconName={props.iconName} />
+        </LinkSCP>
+      )}
+      {!props.externalLink && (
+        <LinkSCP href={props.href} className={props.className} id={props.id}>
+          <IconsCP iconName={props.iconName} />
+        </LinkSCP>
+      )}
+    </>
   )
 }
 
@@ -45,8 +53,4 @@ const LinkSCP = styled.a`
   &&:hover {
     color: ${props => props.theme.colors.darkPrimary};
   }
-`
-
-const TextWrapperSCP = styled.div`
-  padding-right: 0.5rem;
 `
