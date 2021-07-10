@@ -2,13 +2,13 @@ import { parseCookies } from 'nookies'
 
 /**
  * @author rafaelvictor01
- * @returns - métodos auxiliares à criação do hook personalizado usePersistedState
+ * @returns - métodos auxiliares à criação do hook personalizado useCookiesPersistedState
  * - A criação deste arquivo de utils deve-se principalmente a declaração da função
  * searchCookiesForInitialState que dispõe de uma longa (e necessária) explicação.
  * Deixar este longo comentário no arquivo principal do hook traria complicações para organização e
  * entendimento do código.
  */
-export const usePersistedStateUtils = {
+export const useCookiesPersistedStateUtils = {
   /**
    * - Para fazermos a atribuição do inicialState (do useState) da forma adequada,
    * Devemos verificar se já existe salvo nos cookies algum valor que seja do nosso

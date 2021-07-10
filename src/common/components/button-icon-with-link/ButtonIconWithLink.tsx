@@ -4,7 +4,7 @@ import IconsCP from '../styles/icons/Icons'
 import { iconNameTP } from '../../types/iconNameTP'
 import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 
-interface ILinkButtonWithIconCPProps extends IStandardInterface {
+interface IButtonIconWithLinkCPProps extends IStandardInterface {
   href: string
   iconName: iconNameTP
   text?: string
@@ -15,24 +15,24 @@ interface ILinkButtonWithIconCPProps extends IStandardInterface {
  * @author rafaelvictor01
  * @return ADD DESCRIPTION
  */
-export default function LinkButtonWithIconCP(
-  props: ILinkButtonWithIconCPProps
+export default function ButtonIconWithLinkCP(
+  props: IButtonIconWithLinkCPProps
 ): JSX.Element {
   return (
-    <LinkButtonIconSCP
+    <LinkSCP
       href={props.href}
       className={props.className}
-      id={props.id + ''}
+      id={props.id}
       target={props.target ?? '_blank'}
     >
       {props.text && <TextWrapperSCP>{props.text}</TextWrapperSCP>}
       <IconsCP iconName={props.iconName} />
-    </LinkButtonIconSCP>
+    </LinkSCP>
   )
 }
 
 /** Rever */
-const LinkButtonIconSCP = styled.a`
+const LinkSCP = styled.a`
   display: flex;
   color: ${props => props.theme.colors.title};
   font-weight: ${props => props.theme.font.fontMedium};

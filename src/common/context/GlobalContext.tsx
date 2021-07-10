@@ -1,6 +1,6 @@
 import React, { createContext } from 'react'
 import { SettingsConstants } from '../constants/SettingsConstants'
-import usePersistedState from '../hooks/persisted-state/usePersistedState'
+import useCookiesPersistedState from '../hooks/cookies-persisted-state/useCookiesPersistedState'
 import globalThemeDark from '../styles/themes/dark-theme/globalThemeDark'
 import globalThemeLight from '../styles/themes/light-theme/globalThemeLight'
 
@@ -22,7 +22,7 @@ export const GlobalContext = createContext<Partial<GlobalContextTP>>({})
  * @author rafaelvictor01
  */
 export const GlobalContextProvider: React.FC = ({ children }) => {
-  const [globalThemeTitle, setGlobalThemeTitle] = usePersistedState(
+  const [globalThemeTitle, setGlobalThemeTitle] = useCookiesPersistedState(
     SettingsConstants.THEME_COOKIE_ACCESS_KEY,
     globalThemeLight.title
   )

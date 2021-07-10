@@ -4,7 +4,7 @@ import SectionCP from '../../../../common/components/section/Section'
 import MainNavbarCP from '../../../../common/components/main-navbar/MainNavbar'
 import ProfilePictureWithBlobCP from '../profile-picture-with-blob/ProfilePictureWithBlob'
 import TextCP from 'src/common/components/text/Text'
-import LinkButtonWithIconCP from 'src/common/components/link-button-with-icon/LinkButtonWithIcon'
+import ButtonIconWithLinkCP from 'src/common/components/button-icon-with-link/ButtonIconWithLink'
 
 /**
  * @author rafaelvictor01
@@ -18,23 +18,21 @@ export default function LandingScreenMainContentCP(): JSX.Element {
 
         <LandingScreenContentSCP className={'grid'}>
           <SocialMediaAreaSCP>
-            <LinkButtonWithIconCP
+            <ButtonIconWithLinkCP
               href={'www.google.com'}
               iconName={['fab', 'linkedin']}
             />
-            <LinkButtonWithIconCP
+            <ButtonIconWithLinkCP
               href={'www.google.com'}
               iconName={['fab', 'instagram']}
             />
-            <LinkButtonWithIconCP
+            <ButtonIconWithLinkCP
               href={'www.google.com'}
               iconName={['fab', 'github']}
             />
           </SocialMediaAreaSCP>
           <ProfilePictureWithBlobCP />
         </LandingScreenContentSCP>
-
-        {/* Esta faltando a imagem */}
 
         <DataAreaSCP>
           <TextCP content={'Olá, eu sou o Rafael 😀'} title={true} />
@@ -49,7 +47,7 @@ export default function LandingScreenMainContentCP(): JSX.Element {
             }
           />
           {/* className: button button--flex */}
-          <LinkButtonWithIconCP
+          <ButtonIconWithLinkCP
             href={'#'}
             className={'contactMeButton'}
             iconName={'paper-plane'}

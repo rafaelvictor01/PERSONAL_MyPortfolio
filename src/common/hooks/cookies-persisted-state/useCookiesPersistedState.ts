@@ -1,8 +1,8 @@
 import { setCookie } from 'nookies'
 import { useEffect, useState } from 'react'
 import { SettingsConstants } from '../../constants/SettingsConstants'
-import { usePersistedStateResponseTP } from './types/usePersistedStateResponseTP'
-import { usePersistedStateUtils } from './utils/usePersistedStateUtils'
+import { useCookiesPersistedStateResponseTP } from './types/useCookiesPersistedStateResponseTP'
+import { useCookiesPersistedStateUtils } from './utils/useCookiesPersistedStateUtils'
 
 /**
  * @author rafaelvictor01
@@ -12,17 +12,13 @@ import { usePersistedStateUtils } from './utils/usePersistedStateUtils'
  * @todo - Estudar alguma forma de fazer com que este hook seja capaz persistir de persistir mais do
  * que apenas strings nos cookies. (usar tipos genéricos)
  * - tentativa 1) usar JSON.stringify() -> falhou
- *
- * OBS: Lembrar que se um dia esse hook precisar ser adaptado para uso no React puro (sem o next)
- * é mais fácil e conveniente usar o localStorage do browser.
- * @see https://www.youtube.com/watch?v=ngVU74daJ8Y
  */
-export default function usePersistedState(
+export default function useCookiesPersistedState(
   key: string,
   value: string
-): usePersistedStateResponseTP {
+): useCookiesPersistedStateResponseTP {
   const [genericState, setGenericState] = useState(
-    usePersistedStateUtils.searchCookiesForInitialState(key, value)
+    useCookiesPersistedStateUtils.searchCookiesForInitialState(key, value)
   )
 
   // Responsável por criar ou editar os registros existentes nos cookies!
