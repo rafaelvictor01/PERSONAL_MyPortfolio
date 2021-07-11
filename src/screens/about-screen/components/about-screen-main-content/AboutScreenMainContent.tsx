@@ -15,9 +15,9 @@ export default function AboutScreenMainContentCP(): JSX.Element {
 
       {/* Rafael do futuro: já da pra tentar aplicar o framer-motion */}
 
-      <ContentMainWrapperSCP className={'container grid'}>
-        38:51
-      </ContentMainWrapperSCP>
+      <ContentMainWrapperSCP
+        className={'container grid'}
+      ></ContentMainWrapperSCP>
     </ScreenMainWrapperSCP>
   )
 }

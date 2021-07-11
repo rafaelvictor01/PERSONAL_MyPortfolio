@@ -1,8 +1,8 @@
 import React from 'react'
 import IStandardInterface from 'src/common/interfaces/IStandardInterface'
 import styled from 'styled-components'
-import { iconNameTP } from '../../../types/iconNameTP'
-import IconsCP from '../../styles/icons/Icons'
+import { iconNameTP } from '../../../../types/iconNameTP'
+import IconsCP from '../../../styles/icons/Icons'
 
 interface IMainNavbarItemCPProps extends IStandardInterface {
   href: string
