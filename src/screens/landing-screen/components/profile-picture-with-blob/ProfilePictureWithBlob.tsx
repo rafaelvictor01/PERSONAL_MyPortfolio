@@ -48,4 +48,10 @@ const ProfilePictureWithBlobSCP = styled.div`
   img {
     width: 170px;
   }
+
+  @media screen and (max-width: 350px) {
+    svg {
+      width: 180px;
+    }
+  }
 `

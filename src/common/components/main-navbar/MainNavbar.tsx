@@ -63,13 +63,21 @@ export default function MainNavbarCP(): JSX.Element {
           </DrawerContentWrapperSCP>
         </motion.div>
 
-        {!showMenu && (
+        <AuxButtonsWrapperSCP>
           <IconsCP
-            id={'navToggle'}
-            iconName={'th-large'}
+            id={'navTheme'}
+            iconName={'moon'}
             onClick={() => setShowMenu(true)}
           />
-        )}
+
+          {!showMenu && (
+            <IconsCP
+              id={'navToggle'}
+              iconName={'th-large'}
+              onClick={() => setShowMenu(true)}
+            />
+          )}
+        </AuxButtonsWrapperSCP>
       </NavWrapperSCP>
     </HeaderWrapperSCP>
   )
@@ -99,27 +107,20 @@ const NavWrapperSCP = styled.nav`
     bottom: 0.5rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.title};
   }
 
   #navClose:hover {
-    color: ${props => props.theme.colors.darkPrimary};
-  }
-
-  #navToggle {
-    color: ${props => props.theme.colors.title};
-    font-weight: ${props => props.theme.font.fontMedium};
-    font-size: 1.1rem;
-    cursor: pointer;
-  }
-
-  #navToggle:hover {
-    color: ${props => props.theme.colors.darkPrimary};
+    color: ${props => props.theme.colors.primary};
   }
 `
 
 // className: nav__menu; id: nav-menu
 const DrawerContentWrapperSCP = styled.div<{ showMenu: boolean }>`
+  @media screen and (max-width: 350px) {
+    padding: 2rem 0.25rem 4rem;
+  }
+
   @media screen and (max-width: 767px) {
     position: fixed;
     bottom: ${props => (props.showMenu ? '0' : '-100%')};
@@ -137,6 +138,10 @@ const DrawerContentWrapperSCP = styled.div<{ showMenu: boolean }>`
 const ListItensSCP = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+
+  @media screen and (max-width: 350px) {
+    column-gap: 0;
+  }
 `
 
 const LogoWrapperSCP = styled.a`
@@ -144,6 +149,33 @@ const LogoWrapperSCP = styled.a`
   font-weight: ${props => props.theme.font.fontMedium};
 
   &&:hover {
-    color: ${props => props.theme.colors.darkPrimary};
+    color: ${props => props.theme.colors.primary};
+  }
+`
+
+const AuxButtonsWrapperSCP = styled.a`
+  display: flex;
+  align-items: center;
+
+  #navToggle {
+    color: ${props => props.theme.colors.title};
+    font-weight: ${props => props.theme.font.fontMedium};
+    font-size: 1.1rem;
+  }
+
+  #navToggle:hover {
+    cursor: pointer;
+    color: ${props => props.theme.colors.primary};
+  }
+
+  #navTheme {
+    font-size: 1.25rem;
+    margin-right: ${props => props.theme.marginBottom.mb1};
+    color: ${props => props.theme.colors.title};
+  }
+
+  #navTheme:hover {
+    cursor: pointer;
+    color: ${props => props.theme.colors.primary};
   }
 `

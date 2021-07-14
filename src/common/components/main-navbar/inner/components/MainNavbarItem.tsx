@@ -38,6 +38,7 @@ const NavLinkSCP = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   color: ${props => props.theme.colors.title};
   font-weight: ${props => props.theme.font.fontMedium};
 

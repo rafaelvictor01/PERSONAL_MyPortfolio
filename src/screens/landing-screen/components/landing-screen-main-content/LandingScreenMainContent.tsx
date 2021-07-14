@@ -32,7 +32,7 @@ export default function LandingScreenMainContentCP(): JSX.Element {
             externalLink={true}
           />
         </SocialMediaAreaSCP>
-        <ProfilePictureWithBlobCP />
+        <ProfilePictureWithBlobCP className={'profilePicture'} />
         <DataAreaSCP>
           <TextCP content={"Hi, I'am Rafael 😀"} title={true} />
           <TextCP subtitle={true} content={'Dev Fullstack '} />
@@ -69,6 +69,14 @@ const LandingScreenContentSCP = styled.div`
   grid-template-columns: 0.5fr 3fr;
   padding-top: 3.5rem;
   align-items: center;
+
+  @media screen and (max-width: 350px) {
+    grid-template-columns: 0.25fr 3fr;
+  }
+
+  @media screen and (min-width: 568px) {
+    grid-template-columns: max-content 1fr 1fr;
+  }
 `
 
 // home__social
@@ -98,5 +106,9 @@ const DataAreaSCP = styled.div`
 
   p {
     margin-bottom: ${props => props.theme.marginBottom.mb2};
+  }
+
+  @media screen and (max-width: 568px) {
+    grid-column: initial;
   }
 `

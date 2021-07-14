@@ -61,4 +61,22 @@ export default createGlobalStyle`
     display: grid;
     gap: 1.5rem;
   }
+
+  @media screen and (max-width: 350px) {
+    .container {
+      margin-left: ${props => props.theme.marginBottom.mb1};
+      margin-right: ${props => props.theme.marginBottom.mb1};
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body {
+      margin: 0;
+    }
+  }
 `

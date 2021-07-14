@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import IStandardInterface from 'src/common/interfaces/IStandardInterface'
-import styled from 'styled-components'
 
 interface ISectionCPProps extends IStandardInterface {
   children: JSX.Element
@@ -12,12 +12,21 @@ interface ISectionCPProps extends IStandardInterface {
  */
 export default function SectionCP(props: ISectionCPProps): JSX.Element {
   return (
-    <SectionMainWrapperSCP className={props.className} id={props.id}>
+    <motion.section
+      id={props.id}
+      className={props.className}
+      initial={'hidden'}
+      animate={'visible'}
+      variants={{
+        hidden: { opacity: 0, scale: 1 },
+        visible: { opacity: 1, scale: 1 }
+      }}
+      transition={{
+        delay: 0.5
+      }}
+      style={{ padding: '2rem 0 4rem' }}
+    >
       {props.children}
-    </SectionMainWrapperSCP>
+    </motion.section>
   )
 }
-
-const SectionMainWrapperSCP = styled.section`
-  padding: 2rem 0 4rem;
-`
