@@ -111,6 +111,10 @@ const HeaderWrapperSCP = styled.header`
     bottom: initial;
     padding: 0 1rem;
   }
+
+  @media screen and (min-width: 1024px) {
+    padding: 0;
+  }
 `
 
 // className: nav container
@@ -159,6 +163,10 @@ const DrawerContentWrapperSCP = styled.div<{ showMenu: boolean }>`
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 1.5rem 1.5rem 0 0;
     /* transition: 0.3s; */
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
   }
 `
 
@@ -217,6 +225,9 @@ const AuxButtonsWrapperSCP = styled.a`
   @media screen and (min-width: 768px) {
     #navToggle {
       display: none;
+    }
+    #navTheme {
+      margin: 0;
     }
   }
 `

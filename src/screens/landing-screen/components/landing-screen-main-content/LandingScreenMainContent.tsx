@@ -66,6 +66,10 @@ const LandingScreenWrapperSCP = styled.div`
   display: grid;
   gap: 1.5rem;
   gap: 1rem;
+
+  @media screen and (min-width: 768px) {
+    row-gap: 5rem;
+  }
 `
 
 // home__content grid
@@ -86,6 +90,11 @@ const LandingScreenContentSCP = styled.div`
       order: 1;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 5.5rem;
+    column-gap: 2rem;
+  }
 `
 
 // home__social
@@ -103,11 +112,16 @@ const SocialMediaAreaSCP = styled.div`
   .svg-inline--fa:hover {
     color: ${props => props.theme.colors.darkPrimary};
   }
+
+  @media screen and (min-width: 1024px) {
+    transform: translateX(-6rem);
+  }
 `
 
 const ProfilePictureAreaSCP = styled.div`
   display: grid;
   @media screen and (min-width: 568px) {
+    justify-self: center;
     order: 1;
   }
 `

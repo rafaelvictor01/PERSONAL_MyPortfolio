@@ -57,11 +57,15 @@ const ProfilePictureWithBlobSCP = styled.div`
     }
   }
 
-  /** Não está funcionando */
-  @media screen and (min-width: 568px) {
+  @media screen and (min-width: 768px) {
     svg {
-      order: 1;
-      justify-self: center;
+      width: 270px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    svg {
+      width: 320px;
     }
   }
 `
