@@ -9,6 +9,9 @@ import { createGlobalStyle } from 'styled-components'
  * @author rafaelvictor01
  */
 export default createGlobalStyle`
+
+  /* ==================== Genéricos ==================== */
+
   * {
     margin: 0px;
     padding: 0px;
@@ -17,8 +20,10 @@ export default createGlobalStyle`
 
   body {
     margin: 0 0 ${props => props.theme.defaultHeight.headerHeight} 0;
+
     background-color: ${props => props.theme.colors.body};
     color: ${props => props.theme.colors.text};
+
     font-family: ${props => props.theme.font.fontFamily};
     font-size: ${props => props.theme.fontSizeForSmallDevices.normalFontSize};
 
@@ -49,7 +54,7 @@ export default createGlobalStyle`
     height: auto;
   }
 
-  /** Classes Recicláveis */
+  /* ==================== Classes Recicláveis ==================== */
 
   .container {
     max-width: 768px;
@@ -57,10 +62,7 @@ export default createGlobalStyle`
     margin-right: ${props => props.theme.marginBottom.mb15};
   }
 
-  .grid {
-    display: grid;
-    gap: 1.5rem;
-  }
+  /* ==================== MEDIA QUERIES ==================== */
 
   @media screen and (max-width: 350px) {
     .container {
@@ -69,7 +71,7 @@ export default createGlobalStyle`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     .container {
       margin-left: auto;
       margin-right: auto;
@@ -78,5 +80,22 @@ export default createGlobalStyle`
     body {
       margin: 0;
     }
+  }
+
+  /* ==================== Scroll Bar ==================== */
+
+  ::-webkit-scrollbar {
+    width: 0.60rem;
+    border-radius: 0.5rem;
+    background-color: ${props => props.theme.colors.scrollBar};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: ${props => props.theme.colors.scrollBarThumb};
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${props => props.theme.colors.lighterText};
   }
 `

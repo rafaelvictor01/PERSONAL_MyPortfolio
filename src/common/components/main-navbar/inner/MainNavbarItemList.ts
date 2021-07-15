@@ -38,7 +38,7 @@ export const MainNavbarItemList: IMainNavbarData[] = [
   {
     href: '/contact',
     iconName: 'envelope',
-    text: 'Contact-me',
+    text: 'Contact',
     key: 'contact'
   }
 ]

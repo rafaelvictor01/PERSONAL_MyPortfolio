@@ -19,20 +19,12 @@ export default function MainNavbarItemCP(
   props: IMainNavbarItemCPProps
 ): JSX.Element {
   return (
-    <MainNavbarItemMainWrapperSCP>
-      <NavLinkSCP href={props.href} onClick={props.onSelect}>
-        <IconsCP iconName={props.iconName} className={'navIcon'} />
-        {props.text}
-      </NavLinkSCP>
-    </MainNavbarItemMainWrapperSCP>
+    <NavLinkSCP href={props.href} onClick={props.onSelect}>
+      <IconsCP iconName={props.iconName} className={'navIcon'} />
+      {props.text}
+    </NavLinkSCP>
   )
 }
-
-const MainNavbarItemMainWrapperSCP = styled.li`
-  .navIcon {
-    font-size: 1.2rem;
-  }
-`
 
 const NavLinkSCP = styled.a`
   display: flex;
@@ -47,7 +39,17 @@ const NavLinkSCP = styled.a`
     font-size: ${props => props.theme.fontSizeForLargeDevices.smallFontSize};
   }
 
+  .navIcon {
+    font-size: 1.2rem;
+  }
+
   &&:hover {
     color: ${props => props.theme.colors.darkPrimary};
+  }
+
+  @media screen and (min-width: 768px) {
+    .navIcon {
+      display: none;
+    }
   }
 `

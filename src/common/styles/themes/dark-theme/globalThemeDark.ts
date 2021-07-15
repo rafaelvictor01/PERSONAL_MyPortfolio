@@ -12,8 +12,8 @@ const DarkTheme = {
   title: 'DarkTheme',
 
   colors: {
-    primary: `hsl(${SettingsConstants.HUE_COLOR}, 30%, 8%)`,
-    darkPrimary: `hsl(${SettingsConstants.HUE_COLOR}, 57%, 53%)`,
+    primary: `hsl(${SettingsConstants.HUE_COLOR}, 69%, 61%)`,
+    darkPrimary: `hsl(${SettingsConstants.HUE_COLOR}, 30%, 8%)`,
     lighterPrimary: `hsl(${SettingsConstants.HUE_COLOR}, 92%, 85%)`,
 
     text: `hsl(${SettingsConstants.HUE_COLOR}, 8%, 75%)`,
@@ -22,7 +22,10 @@ const DarkTheme = {
 
     input: `hsl(${SettingsConstants.HUE_COLOR}, 29%, 16%)`,
     body: `hsl(${SettingsConstants.HUE_COLOR}, 28%, 12%)`,
-    container: `hsl(${SettingsConstants.HUE_COLOR}, 29%, 16%)`
+    container: `hsl(${SettingsConstants.HUE_COLOR}, 29%, 16%)`,
+
+    scrollBar: `hsl(${SettingsConstants.HUE_COLOR}, 12%, 48%)`,
+    scrollBarThumb: `hsl(${SettingsConstants.HUE_COLOR}, 12%, 36%)`
   },
 
   font: {

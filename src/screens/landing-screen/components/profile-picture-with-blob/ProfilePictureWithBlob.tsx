@@ -40,6 +40,8 @@ export default function ProfilePictureWithBlobCP(
 }
 
 const ProfilePictureWithBlobSCP = styled.div`
+  display: grid;
+
   svg {
     width: 200px;
     fill: ${props => props.theme.colors.primary};
@@ -52,6 +54,14 @@ const ProfilePictureWithBlobSCP = styled.div`
   @media screen and (max-width: 350px) {
     svg {
       width: 180px;
+    }
+  }
+
+  /** Não está funcionando */
+  @media screen and (min-width: 568px) {
+    svg {
+      order: 1;
+      justify-self: center;
     }
   }
 `

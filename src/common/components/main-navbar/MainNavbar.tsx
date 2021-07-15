@@ -1,16 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import IconsCP from '../styles/icons/Icons'
 import { motion } from 'framer-motion'
 import MainNavbarItemCP from './inner/components/MainNavbarItem'
 import { MainNavbarItemList } from 'src/common/components/main-navbar/inner/MainNavbarItemList'
+import { GlobalContext } from 'src/common/context/GlobalContext'
+import globalThemeLight from 'src/common/styles/themes/light-theme/globalThemeLight'
+import useWindowDimensions from 'src/common/hooks/window-dimensions/useWindowDimensions'
 
 /**
  * @author rafaelvictor01
  * @return ADD DESCRIPTION
  */
 export default function MainNavbarCP(): JSX.Element {
+  const globalContext = useContext(GlobalContext)
+  const { width } = useWindowDimensions()
+
   const [showMenu, setShowMenu] = useState(false)
+
+  useEffect(() => {
+    if (!!width && width >= 768) setShowMenu(true)
+  }, [width])
 
   const container = {
     visible: { opacity: 1 },
@@ -38,7 +48,7 @@ export default function MainNavbarCP(): JSX.Element {
           animate={showMenu ? 'visible' : 'hidden'}
         >
           <DrawerContentWrapperSCP showMenu={showMenu}>
-            <ListItensSCP className={'grid'}>
+            <ListItensSCP>
               {MainNavbarItemList.map(currentChildren => (
                 <motion.div variants={item} key={currentChildren.key}>
                   <MainNavbarItemCP
@@ -66,8 +76,12 @@ export default function MainNavbarCP(): JSX.Element {
         <AuxButtonsWrapperSCP>
           <IconsCP
             id={'navTheme'}
-            iconName={'moon'}
-            onClick={() => setShowMenu(true)}
+            iconName={
+              globalContext.globalThemeTitle === globalThemeLight.title
+                ? 'moon'
+                : 'sun'
+            }
+            onClick={globalContext.toggleTheme}
           />
 
           {!showMenu && (
@@ -90,7 +104,13 @@ const HeaderWrapperSCP = styled.header`
   bottom: 0;
   left: 0;
   z-index: ${props => props.theme.zIndex.fixed};
-  /* background-color: ${props => props.theme.colors.primary}; */
+  background-color: ${props => props.theme.colors.body};
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    bottom: initial;
+    padding: 0 1rem;
+  }
 `
 
 // className: nav container
@@ -112,6 +132,14 @@ const NavWrapperSCP = styled.nav`
 
   #navClose:hover {
     color: ${props => props.theme.colors.primary};
+  }
+
+  @media screen and (min-width: 768px) {
+    height: calc(${props => props.theme.defaultHeight.headerHeight} + 1.5rem);
+    column-gap: 1rem;
+    #navClose {
+      display: none;
+    }
   }
 `
 
@@ -136,11 +164,18 @@ const DrawerContentWrapperSCP = styled.div<{ showMenu: boolean }>`
 
 // className: nav__list grid
 const ListItensSCP = styled.ul`
+  display: grid;
+  gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
   @media screen and (max-width: 350px) {
     column-gap: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    column-gap: 2rem;
   }
 `
 
@@ -177,5 +212,11 @@ const AuxButtonsWrapperSCP = styled.a`
   #navTheme:hover {
     cursor: pointer;
     color: ${props => props.theme.colors.primary};
+  }
+
+  @media screen and (min-width: 768px) {
+    #navToggle {
+      display: none;
+    }
   }
 `

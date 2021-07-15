@@ -22,7 +22,10 @@ const LightTheme = {
 
     input: `hsl(${SettingsConstants.HUE_COLOR}, 70%, 96%)`,
     body: `hsl(${SettingsConstants.HUE_COLOR}, 60%, 99%)`,
-    container: '#FFF'
+    container: '#FFF',
+
+    scrollBar: `hsl(${SettingsConstants.HUE_COLOR}, 12%, 90%)`,
+    scrollBarThumb: `hsl(${SettingsConstants.HUE_COLOR}, 12%, 80%)`
   },
 
   font: {

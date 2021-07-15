@@ -14,7 +14,7 @@ import ButtonCP from 'src/common/components/button/Button'
 export default function LandingScreenMainContentCP(): JSX.Element {
   return (
     <LandingScreenWrapperSCP className={'container grid'}>
-      <LandingScreenContentSCP className={'grid'}>
+      <LandingScreenContentSCP>
         <SocialMediaAreaSCP>
           <ButtonIconWithLinkCP
             iconName={['fab', 'linkedin']}
@@ -32,7 +32,9 @@ export default function LandingScreenMainContentCP(): JSX.Element {
             externalLink={true}
           />
         </SocialMediaAreaSCP>
-        <ProfilePictureWithBlobCP className={'profilePicture'} />
+        <ProfilePictureAreaSCP>
+          <ProfilePictureWithBlobCP />
+        </ProfilePictureAreaSCP>
         <DataAreaSCP>
           <TextCP content={"Hi, I'am Rafael 😀"} title={true} />
           <TextCP subtitle={true} content={'Dev Fullstack '} />
@@ -61,11 +63,15 @@ export default function LandingScreenMainContentCP(): JSX.Element {
 
 // home__container container grid
 const LandingScreenWrapperSCP = styled.div`
+  display: grid;
+  gap: 1.5rem;
   gap: 1rem;
 `
 
 // home__content grid
 const LandingScreenContentSCP = styled.div`
+  display: grid;
+  gap: 1.5rem;
   grid-template-columns: 0.5fr 3fr;
   padding-top: 3.5rem;
   align-items: center;
@@ -76,6 +82,9 @@ const LandingScreenContentSCP = styled.div`
 
   @media screen and (min-width: 568px) {
     grid-template-columns: max-content 1fr 1fr;
+    .profilePicture {
+      order: 1;
+    }
   }
 `
 
@@ -96,6 +105,13 @@ const SocialMediaAreaSCP = styled.div`
   }
 `
 
+const ProfilePictureAreaSCP = styled.div`
+  display: grid;
+  @media screen and (min-width: 568px) {
+    order: 1;
+  }
+`
+
 // home__data
 const DataAreaSCP = styled.div`
   grid-column: 1/3;
@@ -108,7 +124,12 @@ const DataAreaSCP = styled.div`
     margin-bottom: ${props => props.theme.marginBottom.mb2};
   }
 
-  @media screen and (max-width: 568px) {
+  @media screen and (min-width: 568px) {
     grid-column: initial;
+
+    image {
+      order: 1;
+      justify-self: center;
+    }
   }
 `
