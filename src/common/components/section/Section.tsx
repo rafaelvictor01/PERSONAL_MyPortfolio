@@ -5,6 +5,8 @@ import styled from 'styled-components'
 
 interface ISectionCPProps extends IStandardInterface {
   children: JSX.Element
+  title?: string
+  subtitle?: string
 }
 
 /**
@@ -26,8 +28,11 @@ export default function SectionCP(props: ISectionCPProps): JSX.Element {
         transition={{
           delay: 0.5
         }}
-        style={{}}
       >
+        {props.title && <SectionTitleSCP>{props.title}</SectionTitleSCP>}
+        {props.subtitle && (
+          <SectionSubtitleSCP>{props.subtitle}</SectionSubtitleSCP>
+        )}
         {props.children}
       </motion.section>
     </SectionWrapperSCP>
@@ -35,8 +40,32 @@ export default function SectionCP(props: ISectionCPProps): JSX.Element {
 }
 
 const SectionWrapperSCP = styled.div`
-  padding: 2rem 0 4rem;
+  padding: 1rem 0 4rem;
+
   @media screen and (min-width: 768px) {
-    padding: 6rem 0 2rem;
+    padding: 3rem 0 2rem;
+  }
+`
+
+const SectionTitleSCP = styled.div`
+  text-align: center;
+  font-size: ${props => props.theme.fontSizeForSmallDevices.h1FontSize};
+  @media screen and (min-width: 960px) {
+    font-size: ${props => props.theme.fontSizeForLargeDevices.h1FontSize};
+  }
+`
+
+const SectionSubtitleSCP = styled.div`
+  text-align: center;
+  display: block;
+  margin-bottom: ${props => props.theme.marginBottom.mb1};
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
+
+  font-size: ${props => props.theme.fontSizeForSmallDevices.smallFontSize};
+  @media screen and (min-width: 960px) {
+    font-size: ${props => props.theme.fontSizeForLargeDevices.smallFontSize};
   }
 `

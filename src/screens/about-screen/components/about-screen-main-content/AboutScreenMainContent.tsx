@@ -1,11 +1,9 @@
 import React from 'react'
-import SectionSubtitleCP from 'src/common/components/section-subtitle/SectionSubtitle'
-import SectionTitleCP from 'src/common/components/section-title/SectionTitle'
 import styled from 'styled-components'
 import Image from 'next/image'
 import TextCP from 'src/common/components/text/Text'
 import ButtonCP from 'src/common/components/button/Button'
-
+import SectionCP from 'src/common/components/section/Section'
 import srcImage from '../../../../../public/profilePicture.jpg'
 
 /**
@@ -14,10 +12,7 @@ import srcImage from '../../../../../public/profilePicture.jpg'
  */
 export default function AboutScreenMainContentCP(): JSX.Element {
   return (
-    <ScreenMainWrapperSCP>
-      <SectionTitleCP content={'About me'} />
-      <SectionSubtitleCP content={'My introduction'} />
-
+    <SectionCP title={'About me'} subtitle={'My introduction'}>
       <ContentMainWrapperSCP className={'container'}>
         <Image src={srcImage} className={'aboutImage'} />
 
@@ -92,11 +87,9 @@ export default function AboutScreenMainContentCP(): JSX.Element {
           </AboutButtonsSCP>
         </AboutDataSCP>
       </ContentMainWrapperSCP>
-    </ScreenMainWrapperSCP>
+    </SectionCP>
   )
 }
-
-const ScreenMainWrapperSCP = styled.div``
 
 // about__container container grid
 const ContentMainWrapperSCP = styled.div`
@@ -104,7 +97,6 @@ const ContentMainWrapperSCP = styled.div`
   gap: 1.5rem;
 
   .aboutImage {
-    width: 200px;
     border-radius: 0.5rem;
     justify-self: center;
     align-self: center;

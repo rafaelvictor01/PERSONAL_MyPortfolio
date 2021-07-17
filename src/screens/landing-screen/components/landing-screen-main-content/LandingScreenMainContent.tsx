@@ -13,7 +13,7 @@ import ButtonCP from 'src/common/components/button/Button'
  */
 export default function LandingScreenMainContentCP(): JSX.Element {
   return (
-    <LandingScreenWrapperSCP className={'container grid'}>
+    <LandingScreenWrapperSCP className={'container'}>
       <LandingScreenContentSCP>
         <SocialMediaAreaSCP>
           <ButtonIconWithLinkCP
@@ -36,7 +36,7 @@ export default function LandingScreenMainContentCP(): JSX.Element {
           <ProfilePictureWithBlobCP />
         </ProfilePictureAreaSCP>
         <DataAreaSCP>
-          <TextCP content={"Hi, I'am Rafael 😀"} title={true} />
+          <TextCP content={"Hi, i'm Rafael 😀"} title={true} />
           <TextCP subtitle={true} content={'Dev Fullstack '} />
           <TextCP
             content={
