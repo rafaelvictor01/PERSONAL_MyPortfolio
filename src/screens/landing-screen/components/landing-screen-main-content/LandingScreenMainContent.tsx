@@ -1,81 +1,42 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProfilePictureWithBlobCP from '../profile-picture-with-blob/ProfilePictureWithBlob'
-import TextCP from 'src/common/components/text/Text'
-import ButtonIconWithLinkCP from 'src/common/components/button-icon-with-link/ButtonIconWithLink'
-import { UserConstants } from 'src/common/constants/UserConstants'
 import ButtonCP from 'src/common/components/button/Button'
+import SocialMediaButtonsCP from 'src/screens/landing-screen/components/social-media-buttons/SocialMediaButtons'
+import SectionCP from 'src/common/components/section/Section'
+import CoverLetterCP from 'src/screens/landing-screen/components/cover-letter/CoverLetter'
 
 /**
  * @author rafaelvictor01
- * @todo Componentizar direito as coisas por aqui.
- * @return Add description to LandingScreenMainContentCP
+ * @return Tela de apresentação da aplicação.
  */
 export default function LandingScreenMainContentCP(): JSX.Element {
   return (
-    <LandingScreenWrapperSCP className={'container'}>
-      <LandingScreenContentSCP>
-        <SocialMediaAreaSCP>
-          <ButtonIconWithLinkCP
-            iconName={['fab', 'linkedin']}
-            href={UserConstants.URL_LINKEDIN}
-            externalLink={true}
-          />
-          <ButtonIconWithLinkCP
-            iconName={['fab', 'instagram']}
-            href={UserConstants.URL_INSTAGRAM}
-            externalLink={true}
-          />
-          <ButtonIconWithLinkCP
-            iconName={['fab', 'github']}
-            href={UserConstants.URL_GITHUB}
-            externalLink={true}
-          />
-        </SocialMediaAreaSCP>
-        <ProfilePictureAreaSCP>
+    <SectionCP>
+      <LandingScreenWrapperSCP className={'container'}>
+        <SocialMediaButtonsCP />
+
+        <ColumnWithImageSCP>
           <ProfilePictureWithBlobCP />
-        </ProfilePictureAreaSCP>
-        <DataAreaSCP>
-          <TextCP content={"Hi, i'm Rafael 😀"} title={true} />
-          <TextCP subtitle={true} content={'Dev Fullstack '} />
-          <TextCP
-            content={
-              'Estudante de Sistemas da Informação e, atualmente, desenvolvedor web estou sempre ' +
-              'aprendendo, ensinando e criando tecnologias que contribuam para um mundo melhor.'
-            }
-          />
-          {/* className: button button--flex */}
+        </ColumnWithImageSCP>
+
+        <ColumnWithTheCoverLetterSCP>
+          <CoverLetterCP />
           <ButtonCP
-            onClick={() => console.log('create this action')}
             iconName={'paper-plane'}
+            onClick={() => console.log('create this action')}
           >
             Contact Me
           </ButtonCP>
-        </DataAreaSCP>
-      </LandingScreenContentSCP>
-
-      {/* className={'home__scrool'} 31:27 */}
-    </LandingScreenWrapperSCP>
+        </ColumnWithTheCoverLetterSCP>
+      </LandingScreenWrapperSCP>
+    </SectionCP>
   )
 }
 
-// section -> className={'home section'} id={'home'}
-
-// home__container container grid
 const LandingScreenWrapperSCP = styled.div`
   display: grid;
-  gap: 1.5rem;
   gap: 1rem;
-
-  @media screen and (min-width: 768px) {
-    row-gap: 5rem;
-  }
-`
-
-// home__content grid
-const LandingScreenContentSCP = styled.div`
-  display: grid;
-  gap: 1.5rem;
   grid-template-columns: 0.5fr 3fr;
   padding-top: 3.5rem;
   align-items: center;
@@ -86,9 +47,6 @@ const LandingScreenContentSCP = styled.div`
 
   @media screen and (min-width: 568px) {
     grid-template-columns: max-content 1fr 1fr;
-    .profilePicture {
-      order: 1;
-    }
   }
 
   @media screen and (min-width: 768px) {
@@ -97,28 +55,7 @@ const LandingScreenContentSCP = styled.div`
   }
 `
 
-// home__social
-const SocialMediaAreaSCP = styled.div`
-  display: grid;
-  grid-template-columns: max-content;
-  row-gap: 1rem;
-
-  // Para todos os icons
-  .svg-inline--fa {
-    font-size: 1.25rem;
-    color: ${props => props.theme.colors.primary};
-  }
-
-  .svg-inline--fa:hover {
-    color: ${props => props.theme.colors.darkPrimary};
-  }
-
-  @media screen and (min-width: 1024px) {
-    transform: translateX(-6rem);
-  }
-`
-
-const ProfilePictureAreaSCP = styled.div`
+const ColumnWithImageSCP = styled.div`
   display: grid;
   @media screen and (min-width: 568px) {
     justify-self: center;
@@ -126,9 +63,8 @@ const ProfilePictureAreaSCP = styled.div`
   }
 `
 
-// home__data
-const DataAreaSCP = styled.div`
-  grid-column: 1/3;
+const ColumnWithTheCoverLetterSCP = styled.div`
+  grid-column: span 2;
 
   h3 {
     margin-bottom: ${props => props.theme.marginBottom.mb075};
