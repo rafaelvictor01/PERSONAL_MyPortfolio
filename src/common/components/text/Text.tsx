@@ -6,6 +6,7 @@ interface ITextCPProps extends IStandardInterface {
   content: string
   title?: boolean
   subtitle?: boolean
+  highlighted?: boolean
 }
 
 /**
@@ -14,7 +15,10 @@ interface ITextCPProps extends IStandardInterface {
  */
 export default function TextCP(props: ITextCPProps): JSX.Element {
   return (
-    <TextMainWrapperSCP>
+    <TextMainWrapperSCP
+      highlighted={!!props.highlighted}
+      className={props.className}
+    >
       {props.title && !props.subtitle && <h1>{props.content}</h1>}
       {!props.title && props.subtitle && <h3>{props.content}</h3>}
       {!props.title && !props.subtitle && <p>{props.content}</p>}
@@ -22,7 +26,10 @@ export default function TextCP(props: ITextCPProps): JSX.Element {
   )
 }
 
-const TextMainWrapperSCP = styled.div`
+const TextMainWrapperSCP = styled.div<{ highlighted: boolean }>`
+  font-weight: ${props =>
+    props.highlighted ? props.theme.font.fontSemiBold : ''};
+
   h1 {
     color: ${props => props.theme.colors.title};
     font-size: ${props => props.theme.fontSizeForSmallDevices.bigFontSize};
