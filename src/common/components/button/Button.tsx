@@ -1,6 +1,7 @@
 import React from 'react'
 import IconsCP from 'src/common/components/styles/icons/Icons'
 import IStandardInterface from 'src/common/interfaces/IStandardInterface'
+import LightTheme from 'src/common/styles/themes/light-theme/globalThemeLight'
 import { iconNameTP } from 'src/common/types/iconNameTP'
 import styled from 'styled-components'
 
@@ -54,6 +55,13 @@ const ButtonMainWrapperSCP = styled.button`
   }
 
   &:hover {
-    background-color: ${props => props.theme.colors.darkPrimary};
+    background-color: ${props =>
+      props.theme.title === LightTheme.title
+        ? props.theme.colors.darkPrimary
+        : props.theme.colors.primary};
+    color: ${props =>
+      props.theme.title !== LightTheme.title
+        ? props.theme.colors.darkPrimary
+        : props.theme.colors.body};
   }
 `

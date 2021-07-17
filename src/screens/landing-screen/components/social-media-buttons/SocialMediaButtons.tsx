@@ -1,6 +1,7 @@
 import React from 'react'
 import ButtonIconWithLinkCP from 'src/common/components/button-icon-with-link/ButtonIconWithLink'
 import { UserConstants } from 'src/common/constants/UserConstants'
+import LightTheme from 'src/common/styles/themes/light-theme/globalThemeLight'
 import styled from 'styled-components'
 
 /**
@@ -38,11 +39,17 @@ const SocialMediaButtonsMainWrapperSCP = styled.div`
   // svg-inline--fa == Todos os icons
   .svg-inline--fa {
     font-size: 1.25rem;
-    color: ${props => props.theme.colors.primary};
+    color: ${props =>
+      props.theme.title === LightTheme.title
+        ? props.theme.colors.primary
+        : props.theme.colors.text};
   }
 
   .svg-inline--fa:hover {
-    color: ${props => props.theme.colors.darkPrimary};
+    color: ${props =>
+      props.theme.title === LightTheme.title
+        ? props.theme.colors.darkPrimary
+        : props.theme.colors.primary};
   }
 
   @media screen and (min-width: 1024px) {

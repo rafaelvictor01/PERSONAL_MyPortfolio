@@ -44,7 +44,7 @@ const NavLinkSCP = styled.a`
   }
 
   &&:hover {
-    color: ${props => props.theme.colors.darkPrimary};
+    color: ${props => props.theme.colors.primary};
   }
 
   @media screen and (min-width: 768px) {
