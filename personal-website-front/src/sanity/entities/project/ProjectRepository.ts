@@ -1,6 +1,7 @@
 import { createClient, groq } from "next-sanity";
+import IProject from "./IProject";
 
-export async function getProjects() {
+export async function getProjects(): Promise<IProject[]> {
   const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID ?? "",
     dataset: "production",

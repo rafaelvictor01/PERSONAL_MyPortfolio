@@ -1,8 +1,10 @@
-export default interface IProject {
-  _id: string;
-  _createdAt: string;
+import { IBaseEntitySanity } from "@/sanity/common/interfaces/IBaseEntitySanity";
+import { TextAreaTP } from "@/sanity/common/types/SanityTypes";
+
+export default interface IProject extends IBaseEntitySanity {
   name: string;
   slug: string;
   image: string;
-  content: string;
+  url: string;
+  content: TextAreaTP;
 }

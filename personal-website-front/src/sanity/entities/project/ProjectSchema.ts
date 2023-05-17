@@ -1,7 +1,7 @@
 import {
   IBaseSanitySchema,
   IBaseSanitySchemaFields,
-} from "@/sanity/common/interfaces/IBaseSanitySchema";
+} from "@/sanity/common/interfaces/IBaseSchemaSanity";
 
 const ProjectFields: Array<IBaseSanitySchemaFields> = [
   {

@@ -2,8 +2,7 @@ import IProject from "@/sanity/entities/project/IProject";
 import { getProjects } from "@/sanity/entities/project/ProjectRepository";
 
 export default async function HomePage() {
-  const projects = await getProjects();
-  console.log("Projects: ", projects);
+  const projects: IProject[] = await getProjects();
 
   return (
     <div>
@@ -13,7 +12,6 @@ export default async function HomePage() {
           <p>{project.image}</p>
           <p>{project._createdAt}</p>
           <p>{project.slug}</p>
-          <p>{project.content[0][0]}</p>
           <p>--------------------------------------</p>
         </div>
       ))}
