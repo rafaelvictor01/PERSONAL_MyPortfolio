@@ -1,15 +1,25 @@
 import { createClient, groq } from "next-sanity";
 import IProject from "./IProject";
+import ClientConfig from "@/sanity/common/config/ClientConfig";
+
+export async function getProject(slug: string): Promise<IProject> {
+  return createClient(ClientConfig).fetch(
+    groq`
+      *[_type == "project-schema" && slug.current == $slug[0]]{
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current, 
+        "image": image.asset->url,
+        content
+      }
+    `,
+    { slug }
+  );
+}
 
 export async function getProjects(): Promise<IProject[]> {
-  const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID ?? "",
-    dataset: "production",
-    apiVersion: "2023-05-17",
-    useCdn: true,
-  });
-
-  const fetchData = client.fetch(
+  return createClient(ClientConfig).fetch(
     groq`
       *[_type == "project-schema"]{
         _id,
@@ -21,6 +31,4 @@ export async function getProjects(): Promise<IProject[]> {
       }
     `
   );
-
-  return fetchData;
 }
